@@ -22,8 +22,8 @@ class NewTrackVC: UIViewController {
     // MARK: View Life
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         view.backgroundColor = .yellow
+        mapView.delegate = self
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -84,7 +84,6 @@ class NewTrackVC: UIViewController {
             paikkaObjekti.timestamp = paikka.timestamp
             paikkaObjekti.latitude = paikka.coordinate.latitude
             paikkaObjekti.longitude = paikka.coordinate.longitude
-            //newPath.addToLocations(paikkaObjekti)
             newPath.addToPaikat(paikkaObjekti)
         }
         CoreDataStack.saveContext()
@@ -104,6 +103,8 @@ class NewTrackVC: UIViewController {
         locationManager.distanceFilter = 10
         locationManager.startUpdatingLocation()
     }
+    
+   
     
 } //END
 
@@ -126,6 +127,7 @@ class NewTrackVC: UIViewController {
 extension NewTrackVC: CLLocationManagerDelegate {
   
   func locationManager(_ manager: CLLocationManager, didUpdateLocations paikat: [CLLocation]) {
+      print("testing...")
     for newLocation in paikat {
       let howRecent = newLocation.timestamp.timeIntervalSinceNow
       guard newLocation.horizontalAccuracy < 20 && abs(howRecent) < 10 else { continue }
@@ -145,13 +147,16 @@ extension NewTrackVC: CLLocationManagerDelegate {
 
 // MARK: - Map View Delegate
 extension NewTrackVC: MKMapViewDelegate {
-  func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
-    guard let polyline = overlay as? MKPolyline else {
-      return MKOverlayRenderer(overlay: overlay)
+    
+    func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
+        print("Uusi yritys")
+        guard let polyline = overlay as? MKPolyline else {
+            return MKOverlayRenderer(overlay: overlay)
+        }
+        let renderer = MKPolylineRenderer(polyline: polyline)
+        renderer.strokeColor = .systemBlue
+        renderer.lineWidth = 6
+        return renderer
     }
-    let renderer = MKPolylineRenderer(polyline: polyline)
-    renderer.strokeColor = .blue
-    renderer.lineWidth = 3
-    return renderer
-  }
+    
 }
