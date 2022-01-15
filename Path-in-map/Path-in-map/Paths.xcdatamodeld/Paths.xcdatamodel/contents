@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="19461" systemVersion="21A559" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Paikka" representedClassName="Paikka" syncable="YES">
+        <attribute name="latitude" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="longitude" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="timestamp" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <relationship name="path" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Path" inverseName="paikat" inverseEntity="Path"/>
+    </entity>
+    <entity name="Path" representedClassName="Path" syncable="YES">
+        <attribute name="distance" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="duration" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="timestamp" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <relationship name="paikat" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="Paikka" inverseName="path" inverseEntity="Paikka"/>
+    </entity>
+    <elements>
+        <element name="Paikka" positionX="-54" positionY="9" width="128" height="89"/>
+        <element name="Path" positionX="198.8606567382812" positionY="-93.7091064453125" width="128" height="14"/>
+    </elements>
+</model>
