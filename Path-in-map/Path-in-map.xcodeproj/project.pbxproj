@@ -10,6 +10,7 @@
 		0F2BE5CD27931F2900057C79 /* readme.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 0F2BE5CC27931F2900057C79 /* readme.rtf */; };
 		0FCF3502279473F30052FA18 /* FetchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FCF3501279473F30052FA18 /* FetchViewController.swift */; };
 		0FF091EC279491AE0074612D /* PathDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF091EB279491AE0074612D /* PathDetailsViewController.swift */; };
+		0FF091EE279497CF0074612D /* StoryboardSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF091ED279497CF0074612D /* StoryboardSupport.swift */; };
 		0FF16C1E27885A99000CA81F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF16C1D27885A99000CA81F /* AppDelegate.swift */; };
 		0FF16C2027885A99000CA81F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF16C1F27885A99000CA81F /* SceneDelegate.swift */; };
 		0FF16C2227885A99000CA81F /* NewTrackVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF16C2127885A99000CA81F /* NewTrackVC.swift */; };
@@ -32,6 +33,7 @@
 		0F2BE5CC27931F2900057C79 /* readme.rtf */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; path = readme.rtf; sourceTree = "<group>"; };
 		0FCF3501279473F30052FA18 /* FetchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchViewController.swift; sourceTree = "<group>"; };
 		0FF091EB279491AE0074612D /* PathDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PathDetailsViewController.swift; sourceTree = "<group>"; };
+		0FF091ED279497CF0074612D /* StoryboardSupport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryboardSupport.swift; sourceTree = "<group>"; };
 		0FF16C1A27885A99000CA81F /* Path-in-map.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Path-in-map.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0FF16C1D27885A99000CA81F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0FF16C1F27885A99000CA81F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -125,6 +127,7 @@
 				0FF16C442788730B000CA81F /* FormatDisplay.swift */,
 				0FF16C4627887726000CA81F /* UnitExtensions.swift */,
 				0FF16C4827887A9A000CA81F /* MulticolorPolyline.swift */,
+				0FF091ED279497CF0074612D /* StoryboardSupport.swift */,
 			);
 			name = "Support and components";
 			sourceTree = "<group>";
@@ -218,6 +221,7 @@
 				0FF16C1E27885A99000CA81F /* AppDelegate.swift in Sources */,
 				0FF16C4027886F46000CA81F /* Paikka+CoreDataClass.swift in Sources */,
 				0FF16C3B27886572000CA81F /* CoreDataStack.swift in Sources */,
+				0FF091EE279497CF0074612D /* StoryboardSupport.swift in Sources */,
 				0FF16C2027885A99000CA81F /* SceneDelegate.swift in Sources */,
 				0FF16C4727887726000CA81F /* UnitExtensions.swift in Sources */,
 				0FCF3502279473F30052FA18 /* FetchViewController.swift in Sources */,

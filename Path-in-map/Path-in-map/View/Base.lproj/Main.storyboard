@@ -77,6 +77,7 @@
                         <outlet property="startButton" destination="kAw-Ib-lo7" id="5NP-AD-KGF"/>
                         <outlet property="stopButton" destination="rUN-WA-NPy" id="kY8-48-ur5"/>
                         <outlet property="timeLabel" destination="6WI-99-Tm0" id="AYo-WZ-ED4"/>
+                        <segue destination="6om-ko-vYY" kind="show" identifier="PathDetailsViewController" id="sxP-VN-Y8R"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -104,7 +105,7 @@
             <objects>
                 <viewController id="6om-ko-vYY" customClass="PathDetailsViewController" customModule="Path_in_map" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ACp-yL-G4O">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="dateLabel" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fja-gp-dVU">
@@ -131,11 +132,15 @@
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="R2r-su-aER">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="554"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <outlet property="delegate" destination="6om-ko-vYY" id="70E-hq-cCH"/>
+                                </connections>
                             </mapView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="b4l-Hm-hic"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
+                    <navigationItem key="navigationItem" id="6Dn-Dr-xdp"/>
                     <connections>
                         <outlet property="dateLabel" destination="fja-gp-dVU" id="ori-1A-tMV"/>
                         <outlet property="distanceLabel" destination="TzC-fU-PCP" id="sgD-rO-3Rh"/>

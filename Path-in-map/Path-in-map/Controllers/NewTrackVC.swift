@@ -42,8 +42,8 @@ class NewTrackVC: UIViewController {
         alertController.addAction(UIAlertAction(title: "End tracking", style: .destructive) { _ in
           self.stopTrack()
           self.saveTrack()
+          self.performSegue(withIdentifier: .details, sender: nil)
             //self.present(alertController, animated: true, completion: nil)
-//          self.performSegue(withIdentifier: .details, sender: nil)
           //_ = self.navigationController?.popToRootViewController(animated: true)
         })
         present(alertController, animated: true)
@@ -109,19 +109,19 @@ class NewTrackVC: UIViewController {
 } //END
 
 // MARK: Navigation
-//extension NewRunViewController: SegueHandlerType {
-//  enum SegueIdentifier: String {
-//    case details = "RunDetailsViewController"
-//  }
-//
-//  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//    switch segueIdentifier(for: segue) {
-//    case .details:
-//      let destination = segue.destination as! RunDetailsViewController
-//      destination.run = run
-//    }
-//  }
-//}
+extension NewTrackVC: SegueHandlerType {
+  enum SegueIdentifier: String {
+    case details = "PathDetailsViewController"
+  }
+
+  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    switch segueIdentifier(for: segue) {
+    case .details:
+      let destination = segue.destination as! PathDetailsViewController
+      destination.path = path
+    }
+  }
+}
 
 // MARK: - Location Manager Delegate
 extension NewTrackVC: CLLocationManagerDelegate {
