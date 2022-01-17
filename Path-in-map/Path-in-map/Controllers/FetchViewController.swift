@@ -100,8 +100,8 @@ class FetchViewController: UITableViewController {
         let location = fetchedResultsController.object(at: indexPath)
         DetailController.runData = location
         
-        navigationController?.pushViewController(DetailController, animated: true)
-        //performSegue(withIdentifier: .details, sender: nil)
+        //navigationController?.pushViewController(DetailController, animated: true)
+        performSegue(withIdentifier: .details, sender: nil)
     }
     
 //    // MARK: Navigation to the LocationDetailsVC
@@ -124,19 +124,19 @@ class FetchViewController: UITableViewController {
 // self.performSegue(withIdentifier: .details, sender: nil)
 
 //// MARK: Navigation
-//extension FetchViewController: SegueHandlerType {
-//  enum SegueIdentifier: String {
-//    case details = "PathDetailsViewController"
-//  }
-//
-//  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//    switch segueIdentifier(for: segue) {
-//    case .details:
-//      let destination = segue.destination as! PathDetailsViewController
-//      destination.path = path2
-//    }
-//  }
-//}
+extension FetchViewController: SegueHandlerType {
+  enum SegueIdentifier: String {
+    case details = "PathDetailsViewController"
+  }
+
+  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    switch segueIdentifier(for: segue) {
+    case .details:
+      let destination = segue.destination as! PathDetailsViewController
+      destination.path = path2
+    }
+  }
+}
 
 
 

@@ -3,13 +3,13 @@ import UIKit
 class PathCell: UITableViewCell {
     
     // MARK: Properties
-    var runData: Path! {
+    var runData: Path? {
         didSet {
             let dateFormatter = DateFormatter()
             dateFormatter.dateFormat = "MM/dd/yy hh:mm"
-            noteTitle.text = String(format: "%.1f",runData.distance) + " m"
-            previewLabel.text = String(runData.duration) + " sec"
-            dateLabel.text = dateFormatter.string(from: runData.timestamp ?? Date())
+            noteTitle.text = String(format: "%.1f",runData?.distance ?? 0) + " m"
+            previewLabel.text = String(runData?.duration ?? 0) + " sec"
+            dateLabel.text = dateFormatter.string(from: runData?.timestamp ?? Date())
         }
     }
   

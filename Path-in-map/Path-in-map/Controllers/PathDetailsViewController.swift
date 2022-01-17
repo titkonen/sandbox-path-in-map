@@ -16,13 +16,13 @@ class PathDetailsViewController: UIViewController {
           return dateFormatter
     }()
     
-    var path: Path!
+    var path: Path?
   //  var managedObjectContext: NSManagedObjectContext
-    var runData: Path! {
+    var runData: Path? {
         didSet {
-            distanceLabel.text = String(runData.distance)
-            timeLabel.text = String(runData.duration)
-            dateLabel.text = dateFormatter.string(from: runData.timestamp ?? Date())
+            distanceLabel?.text = String(runData?.distance ?? 0)
+            timeLabel?.text = String(runData?.duration ?? 0)
+            dateLabel?.text = dateFormatter.string(from: runData?.timestamp ?? Date())
         }
     }
     
@@ -35,10 +35,10 @@ class PathDetailsViewController: UIViewController {
     
     // MARK: Helpers
     private func configureView() {
-      let distance = Measurement(value: path.distance, unit: UnitLength.meters)
-      let seconds = Int(path.duration)
+        let distance = Measurement(value: path?.distance ?? 0, unit: UnitLength.meters)
+      let seconds = Int(path?.duration ?? 0)
       let formattedDistance = FormatDisplay.distance(distance)
-      let formattedDate = FormatDisplay.date(path.timestamp)
+      let formattedDate = FormatDisplay.date(path?.timestamp)
       let formattedTime = FormatDisplay.time(seconds)
 //      let formattedPace = FormatDisplay.pace(distance: distance,
 //                                             seconds: seconds,
@@ -55,7 +55,7 @@ class PathDetailsViewController: UIViewController {
     
     private func mapRegion() -> MKCoordinateRegion? {
       guard
-        let locations = path.paikat,
+        let locations = path?.paikat,
         locations.count > 0
       else {
         return nil
@@ -85,7 +85,7 @@ class PathDetailsViewController: UIViewController {
     
     private func polyLine() -> [MulticolorPolyline] {
       
-      let locations = path.paikat?.array as! [Paikka]
+      let locations = path?.paikat?.array as! [Paikka]
       var coordinates: [(CLLocation, CLLocation)] = []
       var speeds: [Double] = []
       var minSpeed = Double.greatestFiniteMagnitude
@@ -121,7 +121,7 @@ class PathDetailsViewController: UIViewController {
     
     private func loadMap() {
       guard
-        let locations = path.paikat,
+        let locations = path?.paikat,
         locations.count > 0,
         let region = mapRegion()
       else {
