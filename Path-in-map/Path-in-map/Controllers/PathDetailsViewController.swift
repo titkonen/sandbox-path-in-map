@@ -18,11 +18,11 @@ class PathDetailsViewController: UIViewController {
     
     var path: Path!
   //  var managedObjectContext: NSManagedObjectContext
-    var runData: Path? {
+    var runData: Path! {
         didSet {
-            distanceLabel.text = String(runData?.distance != nil)
-            timeLabel.text = String(runData?.duration != nil)
-            dateLabel.text = dateFormatter.string(from: runData?.timestamp ?? Date())
+            distanceLabel.text = String(runData.distance)
+            timeLabel.text = String(runData.duration)
+            dateLabel.text = dateFormatter.string(from: runData.timestamp ?? Date())
         }
     }
     
