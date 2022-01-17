@@ -8,7 +8,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Item-->
+        <!--Track-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="NewTrackVC" customModule="Path_in_map" customModuleProvider="target" sceneMemberID="viewController">
@@ -70,7 +70,7 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="us1-Xe-U51"/>
+                    <tabBarItem key="tabBarItem" title="Track" image="location.north.line.fill" catalog="system" id="us1-Xe-U51"/>
                     <connections>
                         <outlet property="distanceLabel" destination="fkD-dS-LYo" id="mXJ-Ac-GHV"/>
                         <outlet property="mapView" destination="518-mr-6To" id="vSc-K7-aOB"/>
@@ -82,23 +82,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1087" y="390"/>
-        </scene>
-        <!--Item-->
-        <scene sceneID="wl7-6V-OSS">
-            <objects>
-                <viewController id="2TO-1e-OYu" customClass="FetchViewController" customModule="Path_in_map" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="Fm7-Y4-Gt5">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <viewLayoutGuide key="safeArea" id="cwi-qG-Ezr"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="sLx-Kc-yKb"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="tSu-ng-eCk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1087" y="-360"/>
+            <point key="canvasLocation" x="1059" y="374"/>
         </scene>
         <!--Path Details View Controller-->
         <scene sceneID="kuz-sU-BO5">
@@ -150,7 +134,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cgq-7a-Wuo" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="137.68115942028987" y="869.86607142857144"/>
+            <point key="canvasLocation" x="2101" y="139"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="lNC-lr-dK5">
@@ -164,15 +148,53 @@
                     </tabBar>
                     <connections>
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="bEy-8R-cXN"/>
-                        <segue destination="2TO-1e-OYu" kind="relationship" relationship="viewControllers" id="Jnq-u7-e5e"/>
+                        <segue destination="SRy-GZ-xhg" kind="relationship" relationship="viewControllers" id="4mq-Na-CXz"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aui-NN-9Ey" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="137.68115942028987" y="138.61607142857142"/>
+            <point key="canvasLocation" x="-145" y="139"/>
+        </scene>
+        <!--FetchViewController-->
+        <scene sceneID="wzQ-42-sfr">
+            <objects>
+                <tableViewController id="SRy-GZ-xhg" userLabel="FetchViewController" customClass="FetchViewController" customModule="Path_in_map" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="kvB-zI-mBr">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="PathCell" id="F2M-uw-1KD">
+                                <rect key="frame" x="0.0" y="44.5" width="414" height="43.5"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="F2M-uw-1KD" id="UEV-2d-f3Y">
+                                    <rect key="frame" x="0.0" y="0.0" width="384.5" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="6om-ko-vYY" kind="show" identifier="PathDetailsViewController" id="7iz-6P-2uW"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="SRy-GZ-xhg" id="lJV-We-fIF"/>
+                            <outlet property="delegate" destination="SRy-GZ-xhg" id="5ti-nv-ny1"/>
+                        </connections>
+                    </tableView>
+                    <tabBarItem key="tabBarItem" title="Fetched paths" image="list.dash" catalog="system" id="5QQ-ht-DiH"/>
+                    <navigationItem key="navigationItem" title="Fetched Runs" largeTitleDisplayMode="always" id="wD5-PY-yy8"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zvx-Md-bsd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1058" y="-335"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="sxP-VN-Y8R"/>
+    </inferredMetricsTieBreakers>
     <resources>
+        <image name="list.dash" catalog="system" width="128" height="85"/>
+        <image name="location.north.line.fill" catalog="system" width="82" height="128"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
