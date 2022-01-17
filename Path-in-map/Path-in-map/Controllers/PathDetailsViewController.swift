@@ -38,7 +38,7 @@ class PathDetailsViewController: UIViewController {
         let distance = Measurement(value: path?.distance ?? 0, unit: UnitLength.meters)
       let seconds = Int(path?.duration ?? 0)
       let formattedDistance = FormatDisplay.distance(distance)
-      let formattedDate = FormatDisplay.date(path?.timestamp)
+        let formattedDate = FormatDisplay.date(path?.timestamp ?? Date())
       let formattedTime = FormatDisplay.time(seconds)
 //      let formattedPace = FormatDisplay.pace(distance: distance,
 //                                             seconds: seconds,
