@@ -10,8 +10,29 @@ class PathCell: UITableViewCell {
             noteTitle.text = String(format: "%.1f",runData?.distance ?? 0) + " m"
             previewLabel.text = String(runData?.duration ?? 0) + " sec"
             dateLabel.text = dateFormatter.string(from: runData?.timestamp ?? Date())
+            ///print("Cell DidSet called \(runData?.distance ?? 1)")
         }
     }
+    
+    var paikkaData: Paikka? {
+        didSet {
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "MM/dd/yy hh:mm"
+            dateLabelLocation.text = dateFormatter.string(from: paikkaData?.timestamp ?? Date())
+            print("Paikka timeStamp called \(paikkaData?.timestamp ?? Date())")
+            print("Paikka latitude called \(paikkaData?.latitude)")
+        }
+    }
+    
+    // MARK: PROTOTYPING LOCATION DATA
+    /// Date label
+    fileprivate var dateLabelLocation: UILabel = {
+        let label = UILabel()
+        label.text = "4/6/2019"
+        label.font = UIFont.systemFont(ofSize: 14, weight: .regular)
+        label.textColor = UIColor.white.withAlphaComponent(0.5)
+        return label
+    }()
   
     /// Note title = Distance
     fileprivate var noteTitle: UILabel = {
@@ -62,7 +83,7 @@ class PathCell: UITableViewCell {
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-    
+        
         contentView.backgroundColor = UIColor(red: 2/255, green: 89/255, blue: 89/255, alpha: 1)
         contentView.addSubview(verticalStackView)
         verticalStackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20).isActive = true
@@ -74,7 +95,7 @@ class PathCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    // MARK: Helpers
+//    // MARK: Helpers
 //    func configure(for path: Path) {
 //        let dateFormatter = DateFormatter()
 //        dateFormatter.dateFormat = "MM/dd/yy hh:mm"

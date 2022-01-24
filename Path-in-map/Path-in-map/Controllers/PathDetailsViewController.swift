@@ -17,6 +17,8 @@ class PathDetailsViewController: UIViewController {
     }()
     
     var path: Path?
+    var path2 = [Path]() // Just testing: Same solution than in MyLocations MapVC
+    
   //  var managedObjectContext: NSManagedObjectContext
     var runData: Path? {
         didSet {
@@ -31,12 +33,23 @@ class PathDetailsViewController: UIViewController {
       super.viewDidLoad()
       configureView()
         mapView.delegate = self
+        
+
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        print("ViewDidAppear")
+        //mapRegion()
+        loadMap()
     }
     
     // MARK: Helpers
     private func configureView() {
-        let distance = Measurement(value: path?.distance ?? 0, unit: UnitLength.meters)
-      let seconds = Int(path?.duration ?? 0)
+        //guard let distance = path?.distance else {return}
+        
+        let distance = Measurement(value: path?.distance ?? 1, unit: UnitLength.meters)
+      let seconds = Int(path?.duration ?? 1213)
       let formattedDistance = FormatDisplay.distance(distance)
         let formattedDate = FormatDisplay.date(path?.timestamp ?? Date())
       let formattedTime = FormatDisplay.time(seconds)
@@ -60,9 +73,11 @@ class PathDetailsViewController: UIViewController {
       else {
         return nil
       }
+        print("jotain paikkatietoa \(locations.array)")
       
       let latitudes = locations.map { location -> Double in
         let location = location as! Paikka
+          print("jotain paikkatietoa \(location.latitude)")
         return location.latitude
       }
       
@@ -136,6 +151,7 @@ class PathDetailsViewController: UIViewController {
       mapView.setRegion(region, animated: true)
       mapView.addOverlays(polyLine())
      // mapView.addAnnotations(annotations())
+      print("Load map called")
     }
     
     private func segmentColor(speed: Double, midSpeed: Double, slowestSpeed: Double, fastestSpeed: Double) -> UIColor {
@@ -186,21 +202,4 @@ extension PathDetailsViewController: MKMapViewDelegate {
     renderer.lineWidth = 3
     return renderer
   }
-
 }
-
-// MARK: - Map View Delegate
-//extension PathDetailsViewController: MKMapViewDelegate {
-//
-//    func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
-//        print("Uusi yritys...2")
-//        guard let polyline = overlay as? MKPolyline else {
-//            return MKOverlayRenderer(overlay: overlay)
-//        }
-//        let renderer = MKPolylineRenderer(polyline: polyline)
-//        renderer.strokeColor = .systemBlue
-//        renderer.lineWidth = 6
-//        return renderer
-//    }
-//
-//}
