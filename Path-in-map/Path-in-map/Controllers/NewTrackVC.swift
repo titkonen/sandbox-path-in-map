@@ -84,7 +84,8 @@ class NewTrackVC: UIViewController {
             paikkaObjekti.timestamp = paikka.timestamp
             paikkaObjekti.latitude = paikka.coordinate.latitude
             paikkaObjekti.longitude = paikka.coordinate.longitude
-            newPath.addToPaikat(paikkaObjekti)
+           // newPath.addToPaikat(paikkaObjekti)
+            newPath.addToLocations(paikkaObjekti)
         }
         CoreDataStack.saveContext()
         path = newPath

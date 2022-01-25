@@ -2,7 +2,7 @@
 //  Paikka+CoreDataProperties.swift
 //  Path-in-map
 //
-//  Created by Toni Itkonen on 15.1.2022.
+//  Created by Toni Itkonen on 24.1.2022.
 //
 //
 
